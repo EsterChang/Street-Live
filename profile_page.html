@@ -16,7 +16,9 @@
     <meta name="apple-mobile-web-app-title" content="Hustle PWA">
     <link rel="apple-touch-icon" href=""> 
     <meta name="description" content="An app for finding street performers">
-    <meta name="theme-color" content="#2F3BA2" />-->
+    <meta name="theme-color" content="#2F3BA2" 
+    <script src="/scripts/install.js"></script>
+    />-->
 
 
     <link rel="stylesheet" type="text/css" href="profile_page.css">
@@ -46,5 +48,18 @@
             </div>
         </div>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
