@@ -1,0 +1,9 @@
+{
+    "name": "Hustle",
+    "short_name": "Hustle",
+    "icons": [],
+    "start_url": "browse.html",
+    "display": "standalone",
+    "background_color": "#131027",
+    "theme_color": "#cb4f96"
+}
