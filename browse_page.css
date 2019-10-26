@@ -14,3 +14,8 @@
 .card-img-top {
     width: 100px;
 }
+
+img {
+    height: 25%;
+    width: 25%
+}
