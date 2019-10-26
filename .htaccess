@@ -1,0 +1,1 @@
+SetEnv GOOGLE_APPLICATION_CREDENTIALS /var/www/street/config/firebase-service-account.json
