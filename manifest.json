@@ -1,0 +1,14 @@
+{
+    "name": "Hustle",
+    "short_name": "Hustle",
+    "icons": [],
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#131027",
+    "theme_color": "#cb4f96"
+}
+
+// To be installable, Chrome requires that you provide at least a 
+// 192x192px icon and a 512x512px icon. But you can also provide 
+// other sizes. Chrome uses the icon closest to 48dp, for example, 
+// 96px on a 2x device or 144px for a 3x device.
