@@ -1,0 +1,16 @@
+.card {
+    width: 100px;
+}
+
+.card-deck {
+    margin-bottom: 50px;
+}
+
+.form-control {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.card-img-top {
+    width: 100px;
+}
