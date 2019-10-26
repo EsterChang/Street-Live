@@ -2,20 +2,22 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-# Use a service account
-cred = credentials.Certificate('serviceAccountKey.json')
-firebase_admin.initialize_app(cred)
+# Use the application default credentials
+cred = credentials.ApplicationDefault()
+firebase_admin.initialize_app(cred, {
+  'projectId': 'hustle-d3f8e'
+})
 
 db = firestore.client()
-doc_ref = db.collection(u'Streams')
-users = doc_ref.stream()
 
-print(doc_ref.get())
-print(doc_ref.stream())
-print(db.collections())
+users_ref = db.collection(u'Users')
+docs = users_ref.stream()
 
-for collection in db.collections():
-    print(collection)
+# doc = db.document('Users/TE77uYKAk9pRc8vCPKuZ')
+# print(doc.to_dict())
+
+for doc in docs:
+    print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
 # print(next(users))
 # for user in users:
