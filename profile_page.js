@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    let id = getUrlParameters()['id']
+    let id = getUrlParameters()['id'];
     if (!id)
         throw new Error("No id in url");
 
@@ -9,7 +9,12 @@ $(document).ready(function() {
         console.log('error');
         console.log(err);
     });
+
+   $.get("/hustle/libs/posts_per_person.php", {id: id}, function(data) {
+       console.log("success", data);
+       populatePosts(JSON.parse(data));
    });
+});
 
 /**
  * populates DOM elements with information from firebase
@@ -26,6 +31,18 @@ function populateProfile(profileInfo) {
     $("#type").text(profileInfo['type']);
 
     $("#profile_picture").attr("src", profileInfo['profile_picture_url']);
+}
+
+function populatePosts(postsInfo) {
+    console.log(postsInfo);
+    for (post of postsInfo) {
+        console.log(post);
+        $(".newsfeed").append(
+            `<div>
+                <p>${post['text_content']}</p>
+            </div>`
+        );
+    }
 }
 
 /**
