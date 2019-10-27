@@ -1,6 +1,6 @@
 $(document).ready(function() {
     console.log('test');
-    $.get("/libs/docs_in_collection.php", function(data) {
+    $.get("/libs/docs_in_collection.php", {collection: "Users"}, function(data) {
         console.log('data');
         console.log(data);
         populateUsers(JSON.parse(data));
@@ -13,9 +13,9 @@ $(document).ready(function() {
 
 function populateUsers(userInfo) {
     for (user of userInfo) {
-        $("#carousel-inner").append(
-            `<div class="carousel-item active">
-            <a href="/profile_page.html?id=${user["id"]}">
+        $("#cards").append(
+            `<div class="user-card col-md-3 col-lg-3">
+            <a href="frontend/profile_page.html?id=${user["id"]}">
                 <img class="card-img-top" alt="" src="${user["profile_picture_url"]}" >
             </a>
             <div class="card-body">
