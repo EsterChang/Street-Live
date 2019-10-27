@@ -98,10 +98,12 @@
 	<script>
 		// search bar fixes
 		$(".app-search-box input").on('focus', function() {
-			$(this).css('width', '300px');
+			$(this).parent().animate({ width: '300px' });
+			$(this).animate({ backgroundColor: 'rgba(255, 255, 255, .25)' });
 		});
 		$(".app-search-box input").on('blur', function() {
-			$(this).css('width', '1%');
+			$(this).parent().animate({ width: '150px' }); 
+			$(this).animate({ backgroundColor: 'rgba(255, 255, 255, .07)' });
 		});
 	</script>
         
