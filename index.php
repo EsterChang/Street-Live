@@ -191,11 +191,15 @@ function initMap() {
 		
 		var contentString = '<p>Performer: <b></b> Location: </p>';
 		var infowindow = new google.maps.InfoWindow({
-		content: contentString
-	  });
-	  marker.addListener('click', function() {
-		infowindow.open(map, marker);
-	  });
+			content: contentString
+		});
+		marker.addListener('click', function() {
+			infowindow.open(map, marker);
+		});
+		
+		google.maps.event.addListener(map, "click", function(event) {
+			infowindow.close();
+		});
 	});
 }
 </script>
