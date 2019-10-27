@@ -13,7 +13,9 @@ $documents = $citiesRef->documents();
 $jsonDocs = array();
 foreach ($documents as $document) {
     if ($document->exists()) {
-        array_push($jsonDocs, $document->data());
+        $map = $document->data();
+        $map["id"] = $document->id();
+        array_push($jsonDocs, $map);
     } 
 }
 
