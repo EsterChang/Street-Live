@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-    $id = $_GET['id'];
+$id = $_GET['id'];
 use Google\Cloud\Firestore\FirestoreClient;
 
 $firestore = new FirestoreClient([
