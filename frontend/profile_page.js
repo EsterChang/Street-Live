@@ -1,15 +1,26 @@
 $(document).ready(function() {
     let id = getUrlParameters()['id'];
-    if (!id)
-        throw new Error("No id in url");
+    // if (!id)
+    //     throw new Error("No id in url");
 
-    $.get("/libs/profile_info.php", {id: id}, function(data) {
-        populateProfile(JSON.parse(data));
-    }).fail(function(err) {
-        console.log('error');
-        console.log(err);
-    });
+    $("#follow_button").click(function() {
+        $("#follow_button").html("Following ✅");
+    })
 
+    $("#donate_button").click(function() {
+        
+    })
+    // $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
+    //     populateProfile(JSON.parse(data));
+    // }).fail(function(err) {
+    //     console.log('error');
+    //     console.log(err);
+    // });
+
+//    $.get("/hustle/libs/posts_per_person.php", {id: id}, function(data) {
+//        console.log("success", data);
+//        populatePosts(JSON.parse(data));
+//    });
 });
 
 /**
@@ -33,8 +44,8 @@ function populatePosts(postsInfo) {
     console.log(postsInfo);
     for (post of postsInfo) {
         let date = new Date(post['time_posted']);
-        $(".newsfeed").append(
-            `<div class="w3-container">
+        $("#feed").append(
+            `<div class="w3-container w3-card-4">
                 <p class="subtext">${date.toLocaleString()}<p>
                 <p>${post['text_content']}</p>
             </div>`
@@ -54,4 +65,8 @@ function getUrlParameters() {
         vars[currVars[0]] = currVars[1];
     }
     return vars;
+}
+
+function followClicked() {
+    console.log("Hi there")
 }
