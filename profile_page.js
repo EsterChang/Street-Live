@@ -38,7 +38,7 @@ function populatePosts(postsInfo) {
     for (post of postsInfo) {
         let date = new Date(post['time_posted']);
         $(".newsfeed").append(
-            `<div class="card container">
+            `<div class="w3-container">
                 <p class="subtext">${date.toLocaleString()}<p>
                 <p>${post['text_content']}</p>
             </div>`
