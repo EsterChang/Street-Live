@@ -36,9 +36,10 @@ function populateProfile(profileInfo) {
 function populatePosts(postsInfo) {
     console.log(postsInfo);
     for (post of postsInfo) {
-        console.log(post);
+        let date = new Date(post['time_posted']);
         $(".newsfeed").append(
-            `<div>
+            `<div class="card container">
+                <p class="subtext">${date.toLocaleString()}<p>
                 <p>${post['text_content']}</p>
             </div>`
         );

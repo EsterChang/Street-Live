@@ -19,5 +19,10 @@ img.avatar {
 }
 
 .card {
+    margin: 5px;
     border: 1px solid grey;
+}
+
+.card p {
+    margin: 0;
 }
