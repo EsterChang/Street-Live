@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let id = getUrlParameters()['id']
-    $.get("/hustle/libs/db-test.php", {id: id}, function(data) {
+    $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
         console.log('data');
         console.log(data);
         let profileInfo = JSON.parse(data);
@@ -10,15 +10,12 @@ $(document).ready(function() {
         console.log('error');
         console.log(err);
     });
-    // $,ajax({
-    //     url: "/hustle/libs/db-test.php",
-    //     success: function(data) {
-    //         console.log('data', data);
-    //     },
-    //     error: function(err) {
-    //         console.log('err', err);
-    //     }
-    // });
+   
+
+    $.get("/hustle/libs/docs_in_collection.php", function(data) {
+        console.log('data');
+        console.log(data);
+    });
 });
 
 function populateProfile(profileInfo) {
