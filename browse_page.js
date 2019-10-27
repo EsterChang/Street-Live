@@ -15,7 +15,7 @@ function populateUsers(userInfo) {
     for (user of userInfo) {
         $("#cards").append(
             `<div class="user-card col-md-3 col-lg-3">
-            <a href="frontend/profile_page.html?id=${user["id"]}">
+            <a href="profile_page.php?id=${user["id"]}">
                 <img class="card-img-top" alt="" src="${user["profile_picture_url"]}" >
             </a>
             <div class="card-body">
@@ -23,7 +23,7 @@ function populateUsers(userInfo) {
             </div>
         </div>`
         )
-        console.log(user["profile_picture_url"]);
+        console.log("hello");
     }
 }
 

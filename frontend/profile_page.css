@@ -12,7 +12,7 @@ img.avatar {
 }
 
 .subtext {
-    color: grey;
+    color: white;
 }
 
 #feed {
@@ -26,4 +26,12 @@ img.avatar {
 
 .card p {
     margin: 0;
+}
+
+p {
+    color: white;
+}
+
+h1 {
+    color: white;
 }
