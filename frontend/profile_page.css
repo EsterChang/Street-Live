@@ -2,7 +2,8 @@ img.avatar {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 135px;
+    margin-top: 5%;
+    height: 200px;
     border-radius: 50%;
 }
 
@@ -14,8 +15,8 @@ img.avatar {
     color: grey;
 }
 
-.newsfeed {
-    border: 3px solid black;
+#feed {
+
 }
 
 .card {
