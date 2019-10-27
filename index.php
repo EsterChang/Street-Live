@@ -117,11 +117,6 @@ function initMap() {
 				},
 				{
 				  featureType: 'poi.park',
-				  elementType: 'geometry',
-				  stylers: [{color: '#263c3f'}]
-				},
-				{
-				  featureType: 'poi.park',
 				  elementType: 'labels.text.fill',
 				  stylers: [{color: '#6b9a76'}]
 				},
