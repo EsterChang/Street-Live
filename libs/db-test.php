@@ -1,6 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
+    $id = $_GET['id'];
 use Google\Cloud\Firestore\FirestoreClient;
 
 $firestore = new FirestoreClient([
@@ -9,7 +10,7 @@ $firestore = new FirestoreClient([
 
 try {
     $collectionReference = $firestore->collection('Users');
-    $documentReference = $collectionReference->document('TE77uYKAk9pRc8vCPKuZ');
+    $documentReference = $collectionReference->document($id);
     $snapshot = $documentReference->snapshot();
     echo json_encode($snapshot->data());
 } catch(Exception $e) {
