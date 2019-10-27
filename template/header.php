@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Home | Live Street Performers</title>
+        <title><?php echo $title; ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -62,7 +62,7 @@
                                         <a href="" class="text-dark">
                                             <small>Clear All</small>
                                         </a>
-                                    </span>Notification
+                                    </span>Notifications
                                 </h5>
                             </div>
 
@@ -258,3 +258,9 @@
             <!-- ============================================================== -->
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
+			<div class="content-page">
+                <div class="content">
+                    
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+						

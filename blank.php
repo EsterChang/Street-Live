@@ -1,7 +1,10 @@
 <?php
-require('../template/header.php');
+require('template/top.php');
+head('Home', true);
 ?>
-test
+
+<p>test, please put your HTML here</p>
+
 <?php
-require('../template/footer.php');
+footer();
 ?>
