@@ -7,10 +7,16 @@ head('Home', true, '/', false, array('Home' => '/'));
 		width: 100%;
 		height: calc(100vh - 135px);
 	}
-	#map img {
+	#map .loader-image {
 		position: relative;
 		left: -39px;
 		top: -39px;
+	}
+	.info_window {
+		margin: 0;
+		font-weight: 800;
+		color: #ADCBE3;
+		font-size: 17px;
 	}
 	.gif-container {
 		border: 2px solid #d09fe8;
@@ -42,7 +48,7 @@ head('Home', true, '/', false, array('Home' => '/'));
 <div id="map">
 	<div class="loader-container">
 		<div class="gif-container">
-			<img src="/assets/images/map-loader.gif"/>
+			<img class="loader-image" src="/assets/images/map-loader.gif"/>
 		</div>
 	</div>
 </div>
@@ -64,6 +70,7 @@ function initMap() {
 		function showPosition(position) {
 			//console.log("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
 			console.log('Map init ready');
+			
 			resolve([position.coords.latitude, position.coords.longitude]);
 		}
 
@@ -102,79 +109,91 @@ function initMap() {
 				zoom: 16, 
 				center: city,
 				styles: [
-				{elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-				{elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-				{elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-				{
-				  featureType: 'administrative.locality',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#d59563'}]
-				},
-				{
-				  featureType: 'poi',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#d5e6f7'}]
-				},
-				{
-				  featureType: 'poi.park',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#6b9a76'}]
-				},
-				{
-				  featureType: 'road',
-				  elementType: 'geometry',
-				  stylers: [{color: '#3973ad'}]
-				},
-				{
-				  featureType: 'road',
-				  elementType: 'geometry.stroke',
-				  stylers: [{color: '#212a37'}]
-				},
-				{
-				  featureType: 'road',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#9ca5b3'}]
-				},
-				{
-				  featureType: 'road.highway',
-				  elementType: 'geometry',
-				  stylers: [{color: '#a989c9'}]
-				},
-				{
-				  featureType: 'road.highway',
-				  elementType: 'geometry.stroke',
-				  stylers: [{color: '#1f2835'}]
-				},
-				{
-				  featureType: 'road.highway',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#f3d19c'}]
-				},
-				{
-				  featureType: 'transit',
-				  elementType: 'geometry',
-				  stylers: [{color: '#2f3948'}]
-				},
-				{
-				  featureType: 'transit.station',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#d59563'}]
-				},
-				{
-				  featureType: 'water',
-				  elementType: 'geometry',
-				  stylers: [{color: '#17263c'}]
-				},
-				{
-				  featureType: 'water',
-				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#515c6d'}]
-				},
-				{
-				  featureType: 'water',
-				  elementType: 'labels.text.stroke',
-				  stylers: [{color: '#17263c'}]
-				}
+					{
+						featureType: "poi",
+						elementType: "labels",
+						stylers: [
+							  { visibility: "off" }
+						]
+					},
+					{elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+					{elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+					{elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+					{
+					  featureType: 'administrative.locality',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#d59563'}]
+					},
+					{
+					  featureType: 'poi',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#d5e6f7'}]
+					},
+					{
+					  featureType: 'poi.park',
+					  elementType: 'geometry',
+					  stylers: [{color: '#263c3f'}]
+					},
+					{
+					  featureType: 'poi.park',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#6b9a76'}]
+					},
+					{
+					  featureType: 'road',
+					  elementType: 'geometry',
+					  stylers: [{color: '#3973ad'}]
+					},
+					{
+					  featureType: 'road',
+					  elementType: 'geometry.stroke',
+					  stylers: [{color: '#212a37'}]
+					},
+					{
+					  featureType: 'road',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#9ca5b3'}]
+					},
+					{
+					  featureType: 'road.highway',
+					  elementType: 'geometry',
+					  stylers: [{color: '#a989c9'}]
+					},
+					{
+					  featureType: 'road.highway',
+					  elementType: 'geometry.stroke',
+					  stylers: [{color: '#1f2835'}]
+					},
+					{
+					  featureType: 'road.highway',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#f3d19c'}]
+					},
+					{
+					  featureType: 'transit',
+					  elementType: 'geometry',
+					  stylers: [{color: '#2f3948'}]
+					},
+					{
+					  featureType: 'transit.station',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#d59563'}]
+					},
+					{
+					  featureType: 'water',
+					  elementType: 'geometry',
+					  stylers: [{color: '#17263c'}]
+					},
+					{
+					  featureType: 'water',
+					  elementType: 'labels.text.fill',
+					  stylers: [{color: '#515c6d'}]
+					},
+					{
+					  featureType: 'water',
+					  elementType: 'labels.text.stroke',
+					  stylers: [{color: '#17263c'}]
+					}
 			  ]
 			});
 
@@ -184,7 +203,7 @@ function initMap() {
 			icon: '/assets/images/map-pointer.png'
 		});
 		
-		var contentString = '<p>Performer: <b></b> Location: </p>';
+		var contentString = '<p class="info_window">Your Are Here</p>';
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString
 		});
@@ -195,6 +214,25 @@ function initMap() {
 		google.maps.event.addListener(map, "click", function(event) {
 			infowindow.close();
 		});
+		
+		google.maps.event.addListener(infowindow, 'domready', function() {
+			$(".info_window").parent().parent().parent().find('button').css('color', 'white');
+			$(".info_window").parent().parent().parent().css({
+				'background-color': 'black',
+				'overflow': 'hidden',
+				padding: '10px',
+				border: '2px solid #86cbe3'
+			});
+			$(".info_window").parent().parent().css({
+				'background-color': 'black',
+				'overflow': 'hidden'
+			});
+			$(".info_window").parent().css({
+				'background-color': 'black',
+				'overflow': 'hidden'
+			});
+    	});
+		
 	});
 }
 </script>
