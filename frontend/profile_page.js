@@ -5,10 +5,11 @@ $(document).ready(function() {
 
     $("#follow_button").click(function() {
         $("#follow_button").html("Following ✅");
+
     })
 
     $("#donate_button").click(function() {
-        
+
     })
     // $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
     //     populateProfile(JSON.parse(data));
@@ -65,8 +66,4 @@ function getUrlParameters() {
         vars[currVars[0]] = currVars[1];
     }
     return vars;
-}
-
-function followClicked() {
-    console.log("Hi there")
 }
