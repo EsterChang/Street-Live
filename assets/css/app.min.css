@@ -836,7 +836,8 @@ body.enlarged {
 }
 
 .right-bar .right-bar-toggle:hover {
-    background-color: #fff
+    background-color: #fff;
+	color: black;
 }
 
 .right-bar .user-box {
