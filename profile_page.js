@@ -4,27 +4,19 @@ $(document).ready(function() {
         throw new Error("No id in url");
 
     $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
-        console.log('data');
-        console.log(data);
-        let profileInfo = JSON.parse(data);
-        console.log(profileInfo);
-        populateProfile(profileInfo);
+        populateProfile(JSON.parse(data));
     }).fail(function(err) {
         console.log('error');
         console.log(err);
     });
-   
+   });
 
-    $.get("/hustle/libs/docs_in_collection.php", function(data) {
-        console.log('data');
-        console.log(data);
-    });
-});
-
+/**
+ * populates DOM elements with information from firebase
+ * 
+ * @param {*} profileInfo 
+ */
 function populateProfile(profileInfo) {
-    console.log('testing');
-    console.log(profileInfo['name']);
-
     $("#name").text(profileInfo['name']);
 
     $("#bio").text(profileInfo['bio']);
@@ -36,6 +28,10 @@ function populateProfile(profileInfo) {
     $("#profile_picture").attr("src", profileInfo['profile_picture_url']);
 }
 
+/**
+ * Get query parameters from url
+ * 
+ */
 function getUrlParameters() {
     let vars = {};
     let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
