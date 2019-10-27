@@ -3,17 +3,13 @@ $(document).ready(function() {
     if (!id)
         throw new Error("No id in url");
 
-    $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
+    $.get("/libs/profile_info.php", {id: id}, function(data) {
         populateProfile(JSON.parse(data));
     }).fail(function(err) {
         console.log('error');
         console.log(err);
     });
 
-   $.get("/hustle/libs/posts_per_person.php", {id: id}, function(data) {
-       console.log("success", data);
-       populatePosts(JSON.parse(data));
-   });
 });
 
 /**
