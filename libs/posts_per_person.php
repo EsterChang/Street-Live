@@ -1,15 +1,17 @@
 <?php
 require '../vendor/autoload.php';
 
-$collection = $_GET['collection'];
+$id = $_GET['id'];
 use Google\Cloud\Firestore\FirestoreClient;
 
 $firestore = new FirestoreClient([
     'keyFilePath' => '../config/firebase-service-account.json'
 ]);
 
-$citiesRef = $firestore->collection($collection);
-$documents = $citiesRef->documents();
+$usersRef = $firestore->collection('Users');
+$document = $usersRef->document($id);
+$postRef = $document->collection('Posts');
+$documents = $postRef->documents();
 
 $jsonDocs = array();
 foreach ($documents as $document) {

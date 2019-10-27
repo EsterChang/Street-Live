@@ -1,27 +1,27 @@
 $(document).ready(function() {
-    let id = getUrlParameters()['id']
+    let id = getUrlParameters()['id'];
+    if (!id)
+        throw new Error("No id in url");
+
     $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
-        console.log('data');
-        console.log(data);
-        let profileInfo = JSON.parse(data);
-        console.log(profileInfo);
-        populateProfile(profileInfo);
+        populateProfile(JSON.parse(data));
     }).fail(function(err) {
         console.log('error');
         console.log(err);
     });
-   
 
-    $.get("/hustle/libs/docs_in_collection.php", function(data) {
-        console.log('data');
-        console.log(data);
-    });
+   $.get("/hustle/libs/posts_per_person.php", {id: id}, function(data) {
+       console.log("success", data);
+       populatePosts(JSON.parse(data));
+   });
 });
 
+/**
+ * populates DOM elements with information from firebase
+ * 
+ * @param {*} profileInfo 
+ */
 function populateProfile(profileInfo) {
-    console.log('testing');
-    console.log(profileInfo['name']);
-
     $("#name").text(profileInfo['name']);
 
     $("#bio").text(profileInfo['bio']);
@@ -33,6 +33,23 @@ function populateProfile(profileInfo) {
     $("#profile_picture").attr("src", profileInfo['profile_picture_url']);
 }
 
+function populatePosts(postsInfo) {
+    console.log(postsInfo);
+    for (post of postsInfo) {
+        let date = new Date(post['time_posted']);
+        $(".newsfeed").append(
+            `<div class="card container">
+                <p class="subtext">${date.toLocaleString()}<p>
+                <p>${post['text_content']}</p>
+            </div>`
+        );
+    }
+}
+
+/**
+ * Get query parameters from url
+ * 
+ */
 function getUrlParameters() {
     let vars = {};
     let hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');

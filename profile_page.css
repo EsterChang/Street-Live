@@ -17,3 +17,12 @@ img.avatar {
 .newsfeed {
     border: 3px solid black;
 }
+
+.card {
+    margin: 5px;
+    border: 1px solid grey;
+}
+
+.card p {
+    margin: 0;
+}
