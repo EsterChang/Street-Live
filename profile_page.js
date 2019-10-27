@@ -1,5 +1,8 @@
 $(document).ready(function() {
     let id = getUrlParameters()['id']
+    if (!id)
+        throw new Error("No id in url");
+
     $.get("/hustle/libs/profile_info.php", {id: id}, function(data) {
         console.log('data');
         console.log(data);
