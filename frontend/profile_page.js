@@ -10,6 +10,11 @@ $(document).ready(function() {
         console.log(err);
     });
 
+    $.get("/libs/posts_per_person.php", {id: id}, function(data) {
+        console.log("success", data);
+        populatePosts(JSON.parse(data));
+    });
+
 });
 
 /**
@@ -33,7 +38,7 @@ function populatePosts(postsInfo) {
     console.log(postsInfo);
     for (post of postsInfo) {
         let date = new Date(post['time_posted']);
-        $(".newsfeed").append(
+        $("#feed").append(
             `<div class="w3-container">
                 <p class="subtext">${date.toLocaleString()}<p>
                 <p>${post['text_content']}</p>

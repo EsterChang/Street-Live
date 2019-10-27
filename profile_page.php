@@ -2,6 +2,7 @@
 require('template/top.php');
 head('Home', true);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@ head('Home', true);
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     
-    <script src="frontend/profile_page.js"></script>
+    <script src="/frontend/profile_page.js"></script>
     <link rel="stylesheet" type="text/css" href="/frontend/profile_page.css">
     <link rel="stylesheet" type="text/css" href="../browse_page.css">
      
@@ -33,19 +34,20 @@ head('Home', true);
                     <p id="bio">Fat. Cat.</p>
                     <p id="city" class="subtext">Atlanta, GA</p>
                     <p id="type" class="subtext">Animal</p>
+                    <button type="button" class="btn btn-primary">Follow</button>
+                    <button type="button" class="btn btn-outline-success">Donate</button>
                 </div>
-            </div>
         </div>
     </div>
         <div id="feed">
-            <div class="w3-panel w3-card-2">
+            <!-- <div class="w3-panel w3-card-2">
                 <p class="subtext">Friday 13th</p>
                 <p class="">hello world</p>
             </div>
             <div class="w3-panel w3-card-2">
                     <p class="subtext">Friday 13th</p>
                     <p class="">hello world</p>
-                </div>
+                </div> -->
         </div>
 </body>
 </html>

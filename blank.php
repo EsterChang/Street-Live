@@ -61,14 +61,14 @@ head('Home', true);
                 <div id="carousel-inner" class="row"> -->
                     <!-- <div class="carousel-item active"> -->
                     <div id="cards" class="row">
-                      <div class="user-card col-md-3 col-lg-3">
+                      <!-- <div class="user-card col-md-3 col-lg-3">
                         <a href="frontend/profile_page.html">
-                            <img class="card-img-top" alt="" src="https://i.imgur.com/lMHGHYt.jpg" data-holder-rendered="true">
+                            <img class="card-img-top" alt="" src="https://res.cloudinary.com/fleetnation/image/private/c_fit,w_1120/g_south,l_text:style_gothic2:%C2%A9%20Steven%20Gill,o_20,y_10/g_center,l_watermark4,o_25,y_50/v1533400484/qqlf9urey0dlfbmjdykt.jpg" data-holder-rendered="true">
                         </a>
                         <div class="card-body">
                                 <h5 class="card-title"> Mary </h5>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
 
 
