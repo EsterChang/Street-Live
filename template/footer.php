@@ -94,6 +94,16 @@
 
         <!-- App js -->
         <script src="/assets/js/app.min.js"></script>
+
+	<script>
+		// search bar fixes
+		$(".app-search-box input").on('focus', function() {
+			$(this).css('width', '300px');
+		});
+		$(".app-search-box input").on('blur', function() {
+			$(this).css('width', '1%');
+		});
+	</script>
         
     </body>
 </html>
