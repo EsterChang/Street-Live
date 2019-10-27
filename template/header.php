@@ -20,6 +20,7 @@
         <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -99,31 +100,24 @@
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                             <!-- item-->
                             <div class="dropdown-header noti-title">
-                                <h6 class="text-overflow m-0">Welcome !</h6>
+                                <h6 class="text-overflow m-0">Welcome *username*!</h6>
                             </div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="/me/profile" class="dropdown-item notify-item">
                                 <i class="fe-user"></i>
                                 <span>Profile</span>
                             </a>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="/me/settings" class="dropdown-item notify-item">
                                 <i class="fe-settings"></i>
                                 <span>Settings</span>
                             </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-lock"></i>
-                                <span>Lock Screen</span>
-                            </a>
-
                             <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="/auth/logout" class="dropdown-item notify-item">
                                 <i class="fe-log-out"></i>
                                 <span>Logout</span>
                             </a>
@@ -142,7 +136,7 @@
 
                 <!-- LOGO -->
                 <div class="logo-box">
-                    <a href="index.html" class="logo text-center">
+                    <a href="/" class="logo text-center">
                         <span class="logo-lg">
                             <img src="/assets/images/streets-live-logo.png" alt="" height="60">
                             <!-- <span class="logo-lg-text-light">UBold</span> -->
@@ -188,31 +182,31 @@
 
                             <li class="menu-title">Street Performers</li>
 
-                            <li>
-                                <a href="index.html">
+                            <li<?php if ($active == '/') { echo ' class="mm-active"'; } ?>>
+                                <a href="/"<?php if ($active == '/') { echo ' class="active"'; } ?>>
                                     <i class="fe-map"></i>
                                     <span class="badge badge-success badge-pill float-right">1</span> <!-- show how manty are live -->
                                     <span> Live Map </span>
                                 </a>
                             </li>
 
-                            <li>
+                            <li<?php if (preg_match('@^/browse@i', $active)) { echo ' class="mm-active"'; } ?>>
                                 <a href="javascript: void(0);">
                                     <i class="fe-list"></i>
                                     <span> Browse </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="/browse">All</a></li>
-                                    <li><a href="/browse/singers">Singers</a></li>
-                                    <li><a href="/browse/musicians">Musicians</a></li>
-                                    <li><a href="/browse/dancers">Dancers</a></li>
-                                    <li><a href="/browse/others">Others</a></li>
+                                    <li><a href="/browse"<?php if ($active == '/browse') { echo ' class="active"'; } ?>>All</a></li>
+                                    <li><a href="/browse/singers"<?php if ($active == '/browse/singers') { echo ' class="active"'; } ?>>Singers</a></li>
+                                    <li><a href="/browse/musicians"<?php if ($active == '/browse/musicians') { echo ' class="active"'; } ?>>Musicians</a></li>
+                                    <li><a href="/browse/dancers"<?php if ($active == '/browse/dancers') { echo ' class="active"'; } ?>>Dancers</a></li>
+                                    <li><a href="/browse/others"<?php if ($active == '/browse/others') { echo ' class="active"'; } ?>>Others</a></li>
                                 </ul>
                             </li>
 							
-							<li>
-                                <a href="index.html">
+							<li<?php if ($active == '/streams') { echo ' class="mm-active"'; } ?>>
+                                <a href="/streams"<?php if ($active == '/streams') { echo ' class="active"'; } ?>>
                                     <i class="fe-video"></i>
                                     <span class="badge badge-success badge-pill float-right">1</span> <!-- show how manty are live -->
                                     <span> Streams </span>
@@ -221,22 +215,22 @@
 
                             <li class="menu-title mt-2">Me</li>
 
-							<li>
-                                <a href="/me/stream">
+							<li<?php if ($active == '/me/stream') { echo ' class="mm-active"'; } ?>>
+                                <a href="/me/stream"<?php if ($active == '/me/stream') { echo ' class="active"'; } ?>>
                                     <i class="fe-play"></i>
                                     <span> Start a Stream </span>
                                 </a>
                             </li>
 							
-                            <li>
-                                <a href="/me">
+                            <li<?php if ($active == '/me') { echo ' class="mm-active"'; } ?>>
+                                <a href="/me"<?php if ($active == '/me') { echo ' class="active"'; } ?>>
                                     <i class="fe-user"></i>
                                     <span> Profile </span>
                                 </a>
                             </li>
 							
-							<li>
-                                <a href="/me/settings">
+							<li<?php if ($active == '/me/settings') { echo ' class="mm-active"'; } ?>>
+                                <a href="/me/settings"<?php if ($active == '/me/settings') { echo ' class="active"'; } ?>>
                                     <i class="fe-settings"></i>
                                     <span> Settings </span>
                                 </a>
