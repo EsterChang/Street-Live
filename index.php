@@ -33,6 +33,9 @@ head('Home', true, '/', false, array('Home' => '/'));
 		height: 100%;
 		position: relative;
 	}
+	.content, .content-page, .container-fluid {
+		padding: 0px;
+	}
 </style>
 
 <!-- Google Maps -->
@@ -110,7 +113,7 @@ function initMap() {
 				{
 				  featureType: 'poi',
 				  elementType: 'labels.text.fill',
-				  stylers: [{color: '#d59563'}]
+				  stylers: [{color: '#d5e6f7'}]
 				},
 				{
 				  featureType: 'poi.park',
@@ -125,7 +128,7 @@ function initMap() {
 				{
 				  featureType: 'road',
 				  elementType: 'geometry',
-				  stylers: [{color: '#38414e'}]
+				  stylers: [{color: '#3973ad'}]
 				},
 				{
 				  featureType: 'road',
@@ -140,7 +143,7 @@ function initMap() {
 				{
 				  featureType: 'road.highway',
 				  elementType: 'geometry',
-				  stylers: [{color: '#746855'}]
+				  stylers: [{color: '#a989c9'}]
 				},
 				{
 				  featureType: 'road.highway',
@@ -180,7 +183,12 @@ function initMap() {
 			  ]
 			});
 
-		var marker = new google.maps.Marker({position: city, map: map});
+		var marker = new google.maps.Marker({
+			position: city,
+			map: map,
+			icon: '/assets/images/map-pointer.png'
+		});
+		
 		var contentString = '<p>Performer: <b></b> Location: </p>';
 		var infowindow = new google.maps.InfoWindow({
 		content: contentString
