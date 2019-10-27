@@ -1,0 +1,12 @@
+iframe {
+    border: 2px solid white;
+    margin: 15px;
+}
+
+body {
+    background-color: #232a36;
+}
+
+button {
+    margin:auto;
+}
